@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.electronicaexpress.cl/sitemap.xml
+Sitemap: https://electronicaexpress.cl/sitemap.xml
