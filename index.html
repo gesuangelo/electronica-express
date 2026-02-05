@@ -38,12 +38,28 @@
         .gradient-text { background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .premium-shadow { box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); }
         .card-hover:hover { transform: translateY(-10px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
         
-        /* Ajuste para evitar cortes de imagen y asegurar encuadre */
-        .img-premium { object-fit: cover; object-position: center; width: 100%; height: 100%; }
+        /* Efectos Profesionales para Imágenes */
+        .img-container { position: relative; overflow: hidden; }
+        .img-premium { 
+            object-fit: cover; 
+            object-position: center; 
+            width: 100%; 
+            height: 100%; 
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
+            filter: brightness(0.9) contrast(1.1);
+        }
+        .group:hover .img-premium { 
+            transform: scale(1.1) rotate(1deg); 
+            filter: brightness(1.1) contrast(1.2);
+        }
+        .overlay-gradient {
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 40%, transparent 100%);
+            transition: opacity 0.5s ease;
+        }
+        .group:hover .overlay-gradient { opacity: 0.9; }
+
+        .animate-float { animation: float 6s ease-in-out infinite; }
         
         /* Modal Style */
         .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
@@ -272,60 +288,55 @@
                 <p class="text-slate-500">Visualice la precisión técnica que aplicamos en cada intervención.</p>
             </div>
             
-            <div class="flex space-x-8 overflow-x-auto pb-12 scrollbar-hide px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Tarjeta Galería 1: Soporte EdTech -->
-                <div class="min-w-[300px] md:min-w-[350px] group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative h-[350px] rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-[1.02]">
-                        <img src="publicidad-edtech.png" alt="Soporte EdTech Profesional" class="img-premium">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute bottom-6 left-8">
-                            <h3 class="text-xl font-bold text-white mb-1">Tecnología Educativa</h3>
-                            <p class="text-slate-300 text-xs">Soporte técnico integral.</p>
-                        </div>
+                <div class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <img src="publicidad-edtech.png" alt="Soporte EdTech Profesional" class="img-premium">
+                    <div class="absolute inset-0 overlay-gradient"></div>
+                    <div class="absolute bottom-8 left-10">
+                        <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg mb-3 inline-block">Premium Support</span>
+                        <h3 class="text-2xl font-bold text-white mb-2 tracking-tight">Tecnología Educativa</h3>
+                        <p class="text-slate-300 text-sm font-medium">Soporte técnico integral para aulas modernas.</p>
                     </div>
                 </div>
                 <!-- Tarjeta Galería 2: Carros de Carga -->
-                <div class="min-w-[300px] md:min-w-[350px] group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative h-[350px] rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-[1.02]">
-                        <img src="publicidad-carros.png" alt="Mantenimiento Carros de Carga" class="img-premium">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute bottom-6 left-8">
-                            <h3 class="text-xl font-bold text-white mb-1">Carros de Carga</h3>
-                            <p class="text-slate-300 text-xs">Reparación electromecánica.</p>
-                        </div>
+                <div class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <img src="publicidad-carros.png" alt="Mantenimiento Carros de Carga" class="img-premium">
+                    <div class="absolute inset-0 overlay-gradient"></div>
+                    <div class="absolute bottom-8 left-10">
+                        <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg mb-3 inline-block">Engineering</span>
+                        <h3 class="text-2xl font-bold text-white mb-2 tracking-tight">Carros de Carga</h3>
+                        <p class="text-slate-300 text-sm font-medium">Reparación y mantenimiento electromecánico.</p>
                     </div>
                 </div>
                 <!-- Tarjeta Galería 3: Laboratorios -->
-                <div class="min-w-[300px] md:min-w-[350px] group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative h-[350px] rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-[1.02]">
-                        <img src="publicidad-laboratorios.png" alt="Puesta a punto Laboratorios" class="img-premium">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute bottom-6 left-8">
-                            <h3 class="text-xl font-bold text-white mb-1">Laboratorios TI</h3>
-                            <p class="text-slate-300 text-xs">Puesta a punto masiva.</p>
-                        </div>
+                <div class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <img src="publicidad-laboratorios.png" alt="Puesta a punto Laboratorios" class="img-premium">
+                    <div class="absolute inset-0 overlay-gradient"></div>
+                    <div class="absolute bottom-8 left-10">
+                        <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg mb-3 inline-block">Massive Update</span>
+                        <h3 class="text-2xl font-bold text-white mb-2 tracking-tight">Laboratorios TI</h3>
+                        <p class="text-slate-300 text-sm font-medium">Puesta a punto masiva de flotas de notebooks.</p>
                     </div>
                 </div>
                 <!-- Tarjeta Galería 4: Pantallas -->
-                <div class="min-w-[300px] md:min-w-[350px] group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="relative h-[350px] rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-[1.02]">
-                        <img src="publicidad-pantallas.png" alt="Reparación de Pantallas" class="img-premium">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute bottom-6 left-8">
-                            <h3 class="text-xl font-bold text-white mb-1">Paneles Interactivos</h3>
-                            <p class="text-slate-300 text-xs">Diagnóstico a nivel componente.</p>
-                        </div>
+                <div class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="400">
+                    <img src="publicidad-pantallas.png" alt="Reparación de Pantallas" class="img-premium">
+                    <div class="absolute inset-0 overlay-gradient"></div>
+                    <div class="absolute bottom-8 left-10">
+                        <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg mb-3 inline-block">Hardware Expert</span>
+                        <h3 class="text-2xl font-bold text-white mb-2 tracking-tight">Paneles Interactivos</h3>
+                        <p class="text-slate-300 text-sm font-medium">Diagnóstico preciso a nivel de componente electrónico.</p>
                     </div>
                 </div>
                 <!-- Tarjeta Galería 5: Notebooks -->
-                <div class="min-w-[300px] md:min-w-[350px] group" data-aos="fade-up" data-aos-delay="500">
-                    <div class="relative h-[350px] rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-[1.02]">
-                        <img src="publicidad-notebooks.png" alt="Soporte Notebooks" class="img-premium">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute bottom-6 left-8">
-                            <h3 class="text-xl font-bold text-white mb-1">Flotas de Notebooks</h3>
-                            <p class="text-slate-300 text-xs">Mantenimiento preventivo.</p>
-                        </div>
+                <div class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="500">
+                    <img src="publicidad-notebooks.png" alt="Soporte Notebooks" class="img-premium">
+                    <div class="absolute inset-0 overlay-gradient"></div>
+                    <div class="absolute bottom-8 left-10">
+                        <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg mb-3 inline-block">Maintenance</span>
+                        <h3 class="text-2xl font-bold text-white mb-2 tracking-tight">Flotas de Notebooks</h3>
+                        <p class="text-slate-300 text-sm font-medium">Mantenimiento preventivo de alto rendimiento.</p>
                     </div>
                 </div>
             </div>
