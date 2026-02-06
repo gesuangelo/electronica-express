@@ -1,0 +1,14 @@
+{
+  "name": "Electrónica Express",
+  "short_name": "Electrónica Express",
+  "icons": [
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0B57FF",
+  "background_color": "#000000",
+  "display": "standalone"
+}
