@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrónica Express | Servicios</title>
+    <meta name="description" content="Servicios de soporte técnico especializado para colegios en Chile.">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        .service-card { transition: transform .5s ease, filter .4s ease; }
+        .service-card:hover { transform: scale(1.01); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200"><i class="fas fa-bolt text-xl"></i></div>
+            <div><h1 class="text-xl font-extrabold tracking-tighter text-slate-800">ELECTRONICA <span class="text-blue-600">EXPRESS</span></h1><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">High-End Tech Support</p></div>
+        </div>
+        <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 border border-slate-200 rounded-lg px-3 py-2"><i class="fas fa-bars"></i></button>
+        <div class="hidden md:flex items-center space-x-10 text-sm font-semibold text-slate-500">
+            <a href="../index.html" class="hover:text-blue-600 transition">Inicio</a>
+            <a href="index.html" class="text-blue-600 transition">Servicios</a>
+            <a href="../marcas/index.html" class="hover:text-blue-600 transition">Marcas</a>
+            <a href="../galeria/index.html" class="hover:text-blue-600 transition">Galería</a>
+            <a href="https://wa.me/56945472139" class="bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 shadow-lg shadow-blue-200 transition active:scale-95">WhatsApp Directo</a>
+        </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden px-6 py-5 space-y-2 text-sm font-semibold text-slate-600 bg-white/95 border-t border-slate-100 text-center">
+        <a href="../index.html" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition">Inicio</a>
+        <a href="index.html" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition text-blue-600">Servicios</a>
+        <a href="../marcas/index.html" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition">Marcas</a>
+        <a href="../galeria/index.html" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition">Galería</a>
+        <a href="https://wa.me/56945472139" class="inline-flex items-center justify-center gap-2 mt-3 bg-green-500 text-white px-5 py-3 rounded-none hover:bg-green-600 transition shadow-lg">
+            <i class="fab fa-whatsapp"></i> WhatsApp Directo
+        </a>
+    </div>
+</nav>
+
+<section class="py-24 bg-white relative overflow-hidden pt-36">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">Soluciones en soporte TI</h2>
+            <p class="text-lg text-slate-500 font-medium leading-relaxed">Infraestructura tecnológica robusta para garantizar la excelencia en el aula digital.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto space-y-8">
+            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="40">
+                <div class="w-16 h-16 bg-blue-100 rounded-none flex items-center justify-center text-blue-600 mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all"><i class="fas fa-desktop text-2xl"></i></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Pantallas Interactivas (65"+)</h3>
+                <p class="text-slate-500 leading-relaxed mb-6">Diagnóstico y reparación a nivel electrónico de paneles táctiles. Solución de fallas de imagen, retroiluminación y sensores.</p>
+            </div>
+
+            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="80">
+                <div class="w-16 h-16 bg-cyan-100 rounded-none flex items-center justify-center text-cyan-600 mb-8 group-hover:bg-cyan-600 group-hover:text-white transition-all"><i class="fas fa-microchip text-2xl"></i></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Optimización de OPS</h3>
+                <p class="text-slate-500 leading-relaxed mb-6">Puesta a punto de módulos Mini PC. Actualización de sistema, drivers y validación de software educativo crítico.</p>
+            </div>
+
+            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="120">
+                <div class="w-16 h-16 bg-indigo-100 rounded-none flex items-center justify-center text-indigo-600 mb-8 group-hover:bg-indigo-600 group-hover:text-white transition-all"><i class="fas fa-laptop-medical text-2xl"></i></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Soporte Notebooks</h3>
+                <p class="text-slate-500 leading-relaxed mb-6">Mantenimiento preventivo y correctivo de notebooks institucionales. Reparación de hardware y configuración de flota.</p>
+            </div>
+
+            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="160">
+                <div class="w-16 h-16 bg-emerald-100 rounded-none flex items-center justify-center text-emerald-600 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-all"><i class="fas fa-shield-alt text-2xl"></i></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Planes Preventivos</h3>
+                <p class="text-slate-500 leading-relaxed mb-6">Programas de mantenimiento periódico para extender la vida útil de los equipos y evitar interrupciones en clases.</p>
+            </div>
+
+            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-orange-100 rounded-none flex items-center justify-center text-orange-600 mb-8 group-hover:bg-orange-600 group-hover:text-white transition-all"><i class="fas fa-briefcase text-2xl"></i></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Asesoría de Compra</h3>
+                <p class="text-slate-500 leading-relaxed mb-6">Consultoría técnica para adquisiciones de volumen. Especificaciones, validación y control de calidad de proveedores.</p>
+            </div>
+
+            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="240">
+                <div class="w-16 h-16 bg-purple-100 rounded-none flex items-center justify-center text-purple-600 mb-8 group-hover:bg-purple-600 group-hover:text-white transition-all"><i class="fas fa-network-wired text-2xl"></i></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Soporte Remoto N2</h3>
+                <p class="text-slate-500 leading-relaxed mb-6">Resolución de incidencias complejas vía remota para todo Chile, reduciendo tiempos de respuesta y costos de visita.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<a href="https://wa.me/56945472139" class="fixed bottom-10 right-10 bg-green-500 text-white w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-2xl hover:scale-110 active:scale-95 transition-all z-50 animate-bounce">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 420, once: true, mirror: false });
+function toggleMobileMenu(){
+  const m = document.getElementById('mobileMenu');
+  if (m) m.classList.toggle('hidden');
+}
+</script>
+</body>
+</html>

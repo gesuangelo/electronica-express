@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrónica Express | Galería</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+      body{font-family:'Inter',sans-serif}
+      .img-premium{display:block;width:100%;height:auto;transition:transform .35s ease,filter .35s ease;filter:brightness(.98) contrast(1.02)}
+      .group:hover .img-premium{transform:scale(1.01);filter:brightness(1.02) contrast(1.04)}
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3"><div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200"><i class="fas fa-bolt text-xl"></i></div><div><h1 class="text-xl font-extrabold tracking-tighter text-slate-800">ELECTRONICA <span class="text-blue-600">EXPRESS</span></h1><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">High-End Tech Support</p></div></div>
+        <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 border border-slate-200 rounded-lg px-3 py-2"><i class="fas fa-bars"></i></button>
+        <div class="hidden md:flex items-center space-x-10 text-sm font-semibold text-slate-500">
+            <a href="../index.html" class="hover:text-blue-600 transition">Inicio</a>
+            <a href="../servicios/index.html" class="hover:text-blue-600 transition">Servicios</a>
+            <a href="../marcas/index.html" class="hover:text-blue-600 transition">Marcas</a>
+            <a href="index.html" class="text-blue-600 transition">Galería</a>
+        </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden px-6 py-5 space-y-2 text-sm font-semibold text-slate-600 bg-white/95 border-t border-slate-100 text-center">
+        <a href="../index.html" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition">Inicio</a>
+        <a href="../servicios/index.html" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition">Servicios</a>
+        <a href="../marcas/index.html" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition">Marcas</a>
+        <a href="index.html" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition text-blue-600">Galería</a>
+        <a href="https://wa.me/56945472139" class="inline-flex items-center justify-center gap-2 mt-3 bg-green-500 text-white px-5 py-3 rounded-none hover:bg-green-600 transition shadow-lg">
+            <i class="fab fa-whatsapp"></i> WhatsApp Directo
+        </a>
+    </div>
+</nav>
+
+<section id="galeria" class="py-24 bg-slate-50 overflow-hidden pt-36">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-16" data-aos="fade-right">
+      <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Ingeniería en Acción</h2>
+      <p class="text-slate-500">Visualice la precisión técnica que aplicamos en cada intervención.</p>
+    </div>
+    <div class="max-w-6xl mx-auto space-y-10">
+      <div class="group"><img src="../publicidad-edtech.png" alt="Soporte EdTech Profesional" class="img-premium"></div>
+      <div class="group"><img src="../publicidad-carros.png" alt="Mantenimiento Carros de Carga" class="img-premium"></div>
+      <div class="group"><img src="../publicidad-laboratorios.png" alt="Puesta a punto Laboratorios" class="img-premium"></div>
+      <div class="group"><img src="../publicidad-pantallas.png" alt="Reparación de Pantallas" class="img-premium"></div>
+      <div class="group"><img src="../publicidad-notebooks.png" alt="Soporte Notebooks" class="img-premium"></div>
+      <div class="group"><img src="../publicidad-marcas.png" alt="Soporte Marcas" class="img-premium"></div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/56945472139" class="fixed bottom-10 right-10 bg-green-500 text-white w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-2xl hover:scale-110 active:scale-95 transition-all z-50 animate-bounce">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 800, once: true, mirror: false });
+function toggleMobileMenu(){
+  const m = document.getElementById('mobileMenu');
+  if (m) m.classList.toggle('hidden');
+}
+</script>
+</body>
+</html>
