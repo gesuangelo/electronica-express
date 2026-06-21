@@ -3,108 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrónica Express | Servicios</title>
-    <meta name="description" content="Servicios de soporte técnico especializado para colegios en Chile: pantallas interactivas, OPS, notebooks, mantenimiento preventivo y soporte remoto.">
+    <title>Electrónica Express | Servicios de Grupo NEXO</title>
+    <meta name="description" content="Servicios de soporte técnico educativo de Electrónica Express, producto de Grupo NEXO, para colegios en Chile.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://electronicaexpress.cl/servicios/">
     <meta property="og:locale" content="es_CL">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Electrónica Express | Servicios">
-    <meta property="og:description" content="Servicios de soporte técnico especializado para colegios en Chile: pantallas interactivas, OPS, notebooks, mantenimiento preventivo y soporte remoto.">
+    <meta property="og:title" content="Electrónica Express | Servicios de Grupo NEXO">
+    <meta property="og:description" content="Soporte técnico educativo para pantallas interactivas, OPS, notebooks, mantenimiento preventivo y soporte remoto.">
     <meta property="og:url" content="https://electronicaexpress.cl/servicios/">
     <meta property="og:site_name" content="Electrónica Express">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
-        .service-card { transition: transform .5s ease, filter .4s ease; }
-        .service-card:hover { transform: scale(1.01); }
+        :root {
+            --nexo-bg: #fbf9f6;
+            --nexo-bg-soft: #f4efe7;
+            --nexo-ink: #171717;
+            --nexo-muted: #625b50;
+            --nexo-quiet: #87785f;
+            --nexo-gold: #b8924e;
+            --nexo-line: #d9cbb6;
+            --nexo-line-soft: #ece5da;
+            --ee-blue: #0b3a78;
+            --ee-blue-dark: #071d3d;
+            --ee-green: #0f7a5b;
+        }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; background: var(--nexo-bg); color: var(--nexo-ink); }
+        .services-grid { display:grid; grid-template-columns:1fr; gap:1rem; }
+        .service-card { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; min-height:0; }
+        .service-card:hover { transform: translateY(-3px); border-color:var(--nexo-line); box-shadow:0 18px 42px rgba(61,46,22,.1); }
+        .service-media { height:9rem; overflow:hidden; background:#f4efe7; }
+        .service-media img { width:100%; height:100%; object-fit:cover; display:block; }
+        .service-copy { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+        .nexo-nav { background: rgba(255,253,249,.94); border-color: rgba(217,203,182,.76); box-shadow: 0 16px 44px rgba(61,46,22,.1); }
+        .nexo-link { color: var(--nexo-quiet); }
+        .nexo-link:hover { color: var(--ee-blue); background: var(--nexo-bg-soft); }
+        .section-label { color: var(--nexo-gold); font-size:.82rem; font-weight:900; letter-spacing:.18em; text-transform:uppercase; }
+        @media (min-width:768px) { .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+        @media (min-width:1024px) { .services-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:1ms!important; transition-duration:1ms!important; scroll-behavior:auto!important; } }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
-<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+<body class="text-slate-900">
+<nav class="fixed w-full z-50 nexo-nav backdrop-blur-md border-b">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200"><i class="fas fa-bolt text-xl"></i></div>
-            <div><h1 class="text-xl font-extrabold tracking-tighter text-slate-800">ELECTRONICA <span class="text-blue-600">EXPRESS</span></h1><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">High-End Tech Support</p></div>
-        </div>
-        <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 border border-slate-200 rounded-lg px-3 py-2"><i class="fas fa-bars"></i></button>
-        <div class="hidden md:flex items-center space-x-10 text-sm font-semibold text-slate-500">
-            <a href="/" class="hover:text-blue-600 transition">Inicio</a>
-            <a href="/servicios/" class="text-blue-600 transition">Servicios</a>
-            <a href="/marcas/" class="hover:text-blue-600 transition">Marcas</a>
-            <a href="/galeria/" class="hover:text-blue-600 transition">Galería</a>
-            <a href="https://wa.me/56945472139" class="bg-green-500 text-white px-6 py-2.5 rounded-none hover:bg-green-600 shadow-lg shadow-green-200 transition active:scale-95 inline-flex items-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp Directo</a>
+        <a href="/" class="flex items-center">
+            <div><div class="text-xl font-extrabold tracking-tighter text-slate-800">ELECTRONICA <span class="text-[#0b3a78]">EXPRESS</span></div><p class="text-[10px] font-bold text-[#87785f] uppercase tracking-widest leading-none">Producto técnico de Grupo NEXO</p></div>
+        </a>
+        <button onclick="toggleMobileMenu()" aria-label="Abrir menú principal" class="md:hidden text-slate-700 border border-[#d9cbb6] rounded-none px-3 py-2"><i class="fas fa-bars"></i></button>
+        <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+            <a href="/" class="nexo-link transition px-3 py-2">Inicio</a>
+            <a href="/servicios/" class="text-[#0b3a78] transition px-3 py-2">Servicios</a>
+            <a href="/marcas/" class="nexo-link transition px-3 py-2">Marcas</a>
+            <a href="/galeria/" class="nexo-link transition px-3 py-2">Galería</a>
+            <a href="https://nexoeducacion.cl/" class="nexo-link transition px-3 py-2">Grupo NEXO</a>
+            <a href="https://wa.me/56945472139" class="bg-[#0f7a5b] text-white px-5 py-2.5 rounded-none hover:bg-[#0c644b] shadow-lg shadow-green-100 transition active:scale-95 inline-flex items-center gap-2"><i class="fab fa-whatsapp"></i> Hablar con soporte</a>
         </div>
     </div>
-    <div id="mobileMenu" class="md:hidden hidden px-6 py-5 space-y-2 text-sm font-semibold text-slate-600 bg-white/95 border-t border-slate-100 text-center">
-        <a href="/" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition">Inicio</a>
-        <a href="/servicios/" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition text-blue-600">Servicios</a>
-        <a href="/marcas/" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition">Marcas</a>
-        <a href="/galeria/" class="block py-2 px-3 rounded-md hover:bg-slate-100 hover:text-blue-600 transition">Galería</a>
-        <a href="https://wa.me/56945472139" class="inline-flex items-center justify-center gap-2 mt-3 bg-green-500 text-white px-5 py-3 rounded-none hover:bg-green-600 transition shadow-lg">
-            <i class="fab fa-whatsapp"></i> WhatsApp Directo
+    <div id="mobileMenu" class="md:hidden hidden px-6 py-5 space-y-2 text-sm font-semibold text-slate-600 bg-[#fffdfa]/95 border-t border-[#ece5da] text-center">
+        <a href="/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Inicio</a>
+        <a href="/servicios/" class="block py-2 px-3 hover:bg-[#f4efe7] transition text-[#0b3a78]">Servicios</a>
+        <a href="/marcas/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Marcas</a>
+        <a href="/galeria/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Galería</a>
+        <a href="https://nexoeducacion.cl/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Grupo NEXO</a>
+        <a href="https://wa.me/56945472139" class="inline-flex items-center justify-center gap-2 mt-3 bg-[#0f7a5b] text-white px-5 py-3 rounded-none hover:bg-[#0c644b] transition shadow-lg">
+            <i class="fab fa-whatsapp"></i> Hablar con soporte
         </a>
     </div>
 </nav>
 
-<section class="py-24 bg-white relative overflow-hidden pt-36">
+<section class="pt-28 pb-12 bg-[#fbf9f6] relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">Soluciones en soporte TI</h2>
-            <p class="text-lg text-slate-500 font-medium leading-relaxed">Infraestructura tecnológica robusta para garantizar la excelencia en el aula digital.</p>
+        <div class="text-center max-w-3xl mx-auto mb-8">
+            <p class="section-label mb-3">Producto técnico de Grupo NEXO</p>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">Soluciones en soporte TI</h1>
+            <p class="text-base md:text-lg text-[#625b50] font-medium leading-relaxed">Infraestructura tecnológica robusta para garantizar la continuidad del aula digital.</p>
         </div>
 
-        <div class="max-w-6xl mx-auto space-y-8">
-            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="40">
-                <div class="w-16 h-16 bg-blue-100 rounded-none flex items-center justify-center text-blue-600 mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all"><i class="fas fa-desktop text-2xl"></i></div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4">Pantallas Interactivas (65"+)</h3>
-                <p class="text-slate-500 leading-relaxed mb-6">Diagnóstico y reparación a nivel electrónico de paneles táctiles. Solución de fallas de imagen, retroiluminación y sensores.</p>
+        <div class="services-grid max-w-7xl mx-auto">
+            <div class="service-card bg-[#fffdfa] rounded-none border border-[#ece5da] shadow-none overflow-hidden">
+                <div class="service-media"><img src="../assets/generated/servicio-pantallas-interactivas.png" alt="Técnico revisando una pantalla interactiva en sala de clases" width="1536" height="960" loading="lazy"></div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Pantallas Interactivas (65"+)</h3>
+                    <p class="service-copy text-sm text-slate-500 leading-relaxed">Diagnóstico electrónico de paneles táctiles, fallas de imagen, retroiluminación y sensores.</p>
+                </div>
             </div>
 
-            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="80">
-                <div class="w-16 h-16 bg-cyan-100 rounded-none flex items-center justify-center text-cyan-600 mb-8 group-hover:bg-cyan-600 group-hover:text-white transition-all"><i class="fas fa-microchip text-2xl"></i></div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4">Optimización de OPS</h3>
-                <p class="text-slate-500 leading-relaxed mb-6">Puesta a punto de módulos Mini PC. Actualización de sistema, drivers y validación de software educativo crítico.</p>
+            <div class="service-card bg-[#fffdfa] rounded-none border border-[#ece5da] shadow-none overflow-hidden">
+                <div class="service-media"><img src="../assets/generated/servicio-ops.png" alt="Técnico revisando un módulo OPS de pantalla interactiva" width="1536" height="960" loading="lazy"></div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Optimización de OPS</h3>
+                    <p class="service-copy text-sm text-slate-500 leading-relaxed">Puesta a punto de módulos Mini PC, sistema, drivers y software educativo crítico.</p>
+                </div>
             </div>
 
-            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="120">
-                <div class="w-16 h-16 bg-indigo-100 rounded-none flex items-center justify-center text-indigo-600 mb-8 group-hover:bg-indigo-600 group-hover:text-white transition-all"><i class="fas fa-laptop-medical text-2xl"></i></div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4">Soporte Notebooks</h3>
-                <p class="text-slate-500 leading-relaxed mb-6">Mantenimiento preventivo y correctivo de notebooks institucionales. Reparación de hardware y configuración de flota.</p>
+            <div class="service-card bg-[#fffdfa] rounded-none border border-[#ece5da] shadow-none overflow-hidden">
+                <div class="service-media"><img src="../assets/generated/servicio-notebooks.png" alt="Técnico realizando mantenimiento de notebooks escolares" width="1536" height="960" loading="lazy"></div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Soporte Notebooks</h3>
+                    <p class="service-copy text-sm text-slate-500 leading-relaxed">Mantenimiento preventivo y correctivo de notebooks institucionales y flotas escolares.</p>
+                </div>
             </div>
 
-            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="160">
-                <div class="w-16 h-16 bg-emerald-100 rounded-none flex items-center justify-center text-emerald-600 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-all"><i class="fas fa-shield-alt text-2xl"></i></div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4">Planes Preventivos</h3>
-                <p class="text-slate-500 leading-relaxed mb-6">Programas de mantenimiento periódico para extender la vida útil de los equipos y evitar interrupciones en clases.</p>
+            <div class="service-card bg-[#fffdfa] rounded-none border border-[#ece5da] shadow-none overflow-hidden">
+                <div class="service-media"><img src="../assets/generated/servicio-preventivo.png" alt="Técnico realizando mantenimiento preventivo de equipos educativos" width="1536" height="960" loading="lazy"></div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Planes Preventivos</h3>
+                    <p class="service-copy text-sm text-slate-500 leading-relaxed">Mantenciones periódicas para extender vida útil y evitar interrupciones durante clases.</p>
+                </div>
             </div>
 
-            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-16 h-16 bg-orange-100 rounded-none flex items-center justify-center text-orange-600 mb-8 group-hover:bg-orange-600 group-hover:text-white transition-all"><i class="fas fa-briefcase text-2xl"></i></div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4">Asesoría de Compra</h3>
-                <p class="text-slate-500 leading-relaxed mb-6">Consultoría técnica para adquisiciones de volumen. Especificaciones, validación y control de calidad de proveedores.</p>
+            <div class="service-card bg-[#fffdfa] rounded-none border border-[#ece5da] shadow-none overflow-hidden">
+                <div class="service-media"><img src="../assets/generated/servicio-asesoria-compra.png" alt="Asesor técnico revisando equipamiento educativo con un colegio" width="1536" height="960" loading="lazy"></div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Asesoría de Compra</h3>
+                    <p class="service-copy text-sm text-slate-500 leading-relaxed">Especificaciones, validación y control técnico para adquisiciones de volumen.</p>
+                </div>
             </div>
 
-            <div class="service-card p-10 bg-transparent rounded-none border-0 shadow-none group w-full" data-aos="fade-up" data-aos-delay="240">
-                <div class="w-16 h-16 bg-purple-100 rounded-none flex items-center justify-center text-purple-600 mb-8 group-hover:bg-purple-600 group-hover:text-white transition-all"><i class="fas fa-network-wired text-2xl"></i></div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4">Soporte Remoto N2</h3>
-                <p class="text-slate-500 leading-relaxed mb-6">Resolución de incidencias complejas vía remota para todo Chile, reduciendo tiempos de respuesta y costos de visita.</p>
+            <div class="service-card bg-[#fffdfa] rounded-none border border-[#ece5da] shadow-none overflow-hidden">
+                <div class="service-media"><img src="../assets/generated/servicio-soporte-remoto.png" alt="Técnico atendiendo soporte remoto para tecnología escolar" width="1536" height="960" loading="lazy"></div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Soporte Remoto N2</h3>
+                    <p class="service-copy text-sm text-slate-500 leading-relaxed">Resolución remota de incidencias complejas para colegios en todo Chile.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<a href="https://wa.me/56945472139" class="fixed bottom-10 right-10 bg-green-500 text-white w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-2xl hover:scale-110 active:scale-95 transition-all z-50 animate-bounce">
+<footer class="bg-[#071d3d] text-white py-14 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+            <p class="text-xl font-extrabold tracking-tighter">ELECTRONICA EXPRESS</p>
+            <p class="text-slate-300">Producto técnico de Grupo NEXO para soporte educativo.</p>
+        </div>
+        <div class="flex flex-wrap gap-4 font-bold text-sm">
+            <a href="https://nexoeducacion.cl/" class="text-[#d7b979] hover:text-white transition">Grupo NEXO</a>
+            <a href="mailto:contacto@electronicaexpress.cl" class="text-[#d7b979] hover:text-white transition">contacto@electronicaexpress.cl</a>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/56945472139" aria-label="Abrir WhatsApp de soporte de Electrónica Express" class="hidden md:flex fixed bottom-10 right-10 bg-[#0f7a5b] text-white w-20 h-20 rounded-full items-center justify-center text-4xl shadow-2xl hover:scale-110 active:scale-95 transition-all z-50">
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-AOS.init({ duration: 420, once: true, mirror: false });
 function toggleMobileMenu(){
   const m = document.getElementById('mobileMenu');
   if (m) m.classList.toggle('hidden');
