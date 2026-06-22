@@ -37,6 +37,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/site-header.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
         :root {
@@ -118,6 +119,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="assets/site-typography.css">
 </head>
 <body class="text-slate-900">
 
@@ -169,37 +171,33 @@
         </div>
     </div>
 
-    <nav class="fixed w-full z-50 nexo-nav backdrop-blur-md border-b">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center group">
-                <div>
-                    <div class="text-xl font-extrabold tracking-tighter text-slate-800">ELECTRONICA <span class="text-[#0b3a78]">EXPRESS</span></div>
-                    <p class="text-[10px] font-bold text-[#87785f] uppercase tracking-widest leading-none">Producto técnico de Grupo NEXO</p>
-                </div>
-            </a>
-            <button onclick="toggleMobileMenu()" aria-label="Abrir menú principal" class="md:hidden text-slate-700 border border-[#d9cbb6] rounded-none px-3 py-2">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
-                <a href="/" class="text-[#0b3a78] transition px-3 py-2">Inicio</a>
-                <a href="/servicios/" class="nexo-link transition px-3 py-2">Servicios</a>
-                <a href="/marcas/" class="nexo-link transition px-3 py-2">Marcas</a>
-                <a href="/galeria/" class="nexo-link transition px-3 py-2">Galería</a>
-                <a href="https://nexoeducacion.cl/" class="nexo-link transition px-3 py-2">Grupo NEXO</a>
-                <a href="https://wa.me/56945472139" class="bg-[#0f7a5b] text-white px-5 py-2.5 rounded-none hover:bg-[#0c644b] shadow-lg shadow-green-100 transition active:scale-95 inline-flex items-center gap-2">
-                    <i class="fab fa-whatsapp"></i> Hablar con soporte
-                </a>
-            </div>
+    <nav class="site-header" aria-label="Navegación principal">
+        <a class="ee-brand" href="/" aria-label="Ir al inicio de Electrónica Express">
+            <span class="ee-brand-name">ELECTRONICA <span>EXPRESS</span></span>
+            <span class="ee-brand-affiliation">Grupo NEXO</span>
+        </a>
+        <div class="header-links" aria-label="Secciones">
+            <a class="is-active" href="/">Inicio</a>
+            <a href="/servicios/">Servicios</a>
+            <a href="/marcas/">Marcas</a>
+            <a href="/galeria/">Galería</a>
+            <a href="https://nexoeducacion.cl/">Grupo NEXO</a>
         </div>
-        <div id="mobileMenu" class="md:hidden hidden px-6 py-5 space-y-2 text-sm font-semibold text-slate-600 bg-[#fffdfa]/95 border-t border-[#ece5da] text-center">
-            <a href="/" class="block py-2 px-3 hover:bg-[#f4efe7] transition text-[#0b3a78]">Inicio</a>
-            <a href="/servicios/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Servicios</a>
-            <a href="/marcas/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Marcas</a>
-            <a href="/galeria/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Galería</a>
-            <a href="https://nexoeducacion.cl/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Grupo NEXO</a>
-            <a href="https://wa.me/56945472139" class="inline-flex items-center justify-center gap-2 mt-3 bg-[#0f7a5b] text-white px-5 py-3 rounded-none hover:bg-[#0c644b] transition shadow-lg">
-                <i class="fab fa-whatsapp"></i> Hablar con soporte
-            </a>
+        <a class="header-cta" href="https://wa.me/56945472139" aria-label="Abrir WhatsApp de soporte de Electrónica Express">
+            <span class="cta-label-full">Hablar con soporte</span>
+            <span class="cta-label-short">WA</span>
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <button onclick="toggleMobileMenu()" aria-label="Abrir menú principal" aria-controls="mobileMenu" aria-expanded="false" class="mobile-toggle">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a class="is-active" href="/">Inicio</a>
+            <a href="/servicios/">Servicios</a>
+            <a href="/marcas/">Marcas</a>
+            <a href="/galeria/">Galería</a>
+            <a href="https://nexoeducacion.cl/">Grupo NEXO</a>
+            <a class="mobile-support" href="https://wa.me/56945472139">Hablar con soporte</a>
         </div>
     </nav>
 
@@ -237,7 +235,6 @@
         <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16 border-b border-slate-800 pb-16">
             <div>
                 <h3 class="text-2xl font-bold mb-6 italic tracking-tighter">ELECTRONICA EXPRESS</h3>
-                <p class="text-slate-300 leading-relaxed">Producto técnico de Grupo NEXO para mantener la tecnología educativa operativa en colegios de Chile.</p>
             </div>
             <div>
                 <h4 class="font-bold mb-6 text-slate-100 uppercase tracking-widest text-xs">Contacto Directo</h4>
@@ -247,12 +244,10 @@
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-6 text-slate-100 uppercase tracking-widest text-xs">Ecosistema Grupo NEXO</h4>
-                <p class="text-slate-400 mb-4">Soluciones para transformación escolar, comunicación y soporte técnico educativo.</p>
                 <a href="https://nexoeducacion.cl/" class="font-bold text-[#d7b979] hover:text-white transition">Volver a Grupo NEXO</a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto pt-10 text-center text-slate-500 text-sm">© 2026 Electrónica Express · Producto de Grupo NEXO.</div>
+        <div class="max-w-7xl mx-auto pt-10 text-center text-slate-500 text-sm">© 2026 Electrónica Express</div>
     </footer>
 
     <a href="https://wa.me/56945472139" aria-label="Abrir WhatsApp de soporte de Electrónica Express" class="hidden md:flex fixed bottom-10 right-10 bg-[#0f7a5b] text-white w-20 h-20 rounded-full items-center justify-center text-4xl shadow-2xl hover:scale-110 active:scale-95 transition-all z-50">
@@ -260,10 +255,13 @@
     </a>
 
     <script>
-        function toggleMobileMenu() {
-            const m = document.getElementById('mobileMenu');
-            if (m) m.classList.toggle('hidden');
-        }
+        function toggleMobileMenu(){
+  const m = document.getElementById('mobileMenu');
+  const button = document.querySelector('[aria-controls="mobileMenu"]');
+  if (!m) return;
+  const isHidden = m.classList.toggle('hidden');
+  if (button) button.setAttribute('aria-expanded', String(!isHidden));
+}
         function toggleModal() {
             const modal = document.getElementById('contactModal');
             if (!modal) return;

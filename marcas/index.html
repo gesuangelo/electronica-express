@@ -15,6 +15,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/site-header.css">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
       :root{--nexo-bg:#fbf9f6;--nexo-bg-soft:#f4efe7;--nexo-ink:#171717;--nexo-muted:#625b50;--nexo-quiet:#87785f;--nexo-gold:#b8924e;--nexo-line:#d9cbb6;--nexo-line-soft:#ece5da;--ee-blue:#0b3a78;--ee-blue-dark:#071d3d;--ee-green:#0f7a5b}
@@ -29,32 +30,38 @@
       .section-label{color:var(--nexo-gold);font-size:.82rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
       @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
     </style>
+    <link rel="stylesheet" href="../assets/site-typography.css">
 </head>
 <body class="text-slate-900">
-<nav class="fixed w-full z-50 nexo-nav backdrop-blur-md border-b">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/" class="flex items-center"><div><div class="text-xl font-extrabold tracking-tighter text-slate-800">ELECTRONICA <span class="text-[#0b3a78]">EXPRESS</span></div><p class="text-[10px] font-bold text-[#87785f] uppercase tracking-widest leading-none">Producto técnico de Grupo NEXO</p></div></a>
-        <button onclick="toggleMobileMenu()" aria-label="Abrir menú principal" class="md:hidden text-slate-700 border border-[#d9cbb6] rounded-none px-3 py-2"><i class="fas fa-bars"></i></button>
-        <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
-            <a href="/" class="nexo-link transition px-3 py-2">Inicio</a>
-            <a href="/servicios/" class="nexo-link transition px-3 py-2">Servicios</a>
-            <a href="/marcas/" class="text-[#0b3a78] transition px-3 py-2">Marcas</a>
-            <a href="/galeria/" class="nexo-link transition px-3 py-2">Galería</a>
-            <a href="https://nexoeducacion.cl/" class="nexo-link transition px-3 py-2">Grupo NEXO</a>
-            <a href="https://wa.me/56945472139" class="bg-[#0f7a5b] text-white px-5 py-2.5 rounded-none hover:bg-[#0c644b] shadow-lg shadow-green-100 transition active:scale-95 inline-flex items-center gap-2"><i class="fab fa-whatsapp"></i> Hablar con soporte</a>
-        </div>
-    </div>
-    <div id="mobileMenu" class="md:hidden hidden px-6 py-5 space-y-2 text-sm font-semibold text-slate-600 bg-[#fffdfa]/95 border-t border-[#ece5da] text-center">
-        <a href="/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Inicio</a>
-        <a href="/servicios/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Servicios</a>
-        <a href="/marcas/" class="block py-2 px-3 hover:bg-[#f4efe7] transition text-[#0b3a78]">Marcas</a>
-        <a href="/galeria/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Galería</a>
-        <a href="https://nexoeducacion.cl/" class="block py-2 px-3 hover:bg-[#f4efe7] transition">Grupo NEXO</a>
-        <a href="https://wa.me/56945472139" class="inline-flex items-center justify-center gap-2 mt-3 bg-[#0f7a5b] text-white px-5 py-3 rounded-none hover:bg-[#0c644b] transition shadow-lg">
-            <i class="fab fa-whatsapp"></i> Hablar con soporte
+<nav class="site-header" aria-label="Navegación principal">
+        <a class="ee-brand" href="/" aria-label="Ir al inicio de Electrónica Express">
+            <span class="ee-brand-name">ELECTRONICA <span>EXPRESS</span></span>
+            <span class="ee-brand-affiliation">Grupo NEXO</span>
         </a>
-    </div>
-</nav>
+        <div class="header-links" aria-label="Secciones">
+            <a href="/">Inicio</a>
+            <a href="/servicios/">Servicios</a>
+            <a class="is-active" href="/marcas/">Marcas</a>
+            <a href="/galeria/">Galería</a>
+            <a href="https://nexoeducacion.cl/">Grupo NEXO</a>
+        </div>
+        <a class="header-cta" href="https://wa.me/56945472139" aria-label="Abrir WhatsApp de soporte de Electrónica Express">
+            <span class="cta-label-full">Hablar con soporte</span>
+            <span class="cta-label-short">WA</span>
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <button onclick="toggleMobileMenu()" aria-label="Abrir menú principal" aria-controls="mobileMenu" aria-expanded="false" class="mobile-toggle">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="/">Inicio</a>
+            <a href="/servicios/">Servicios</a>
+            <a class="is-active" href="/marcas/">Marcas</a>
+            <a href="/galeria/">Galería</a>
+            <a href="https://nexoeducacion.cl/">Grupo NEXO</a>
+            <a class="mobile-support" href="https://wa.me/56945472139">Hablar con soporte</a>
+        </div>
+    </nav>
 
 <section id="marcas" class="py-20 border-y border-[#ece5da] bg-[#fbf9f6] pt-36">
     <div class="max-w-7xl mx-auto px-6">
@@ -85,7 +92,10 @@
 <script>
 function toggleMobileMenu(){
   const m = document.getElementById('mobileMenu');
-  if (m) m.classList.toggle('hidden');
+  const button = document.querySelector('[aria-controls="mobileMenu"]');
+  if (!m) return;
+  const isHidden = m.classList.toggle('hidden');
+  if (button) button.setAttribute('aria-expanded', String(!isHidden));
 }
 
 const BASE_BRANDS = [
