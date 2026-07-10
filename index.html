@@ -28,16 +28,17 @@
     <meta name="twitter:description" content="Producto técnico de Grupo NEXO para soporte de tecnología educativa en colegios.">
     <meta name="twitter:image" content="https://electronicaexpress.cl/publicidad-marcas-og.jpg">
 
-    <link rel="icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" href="favicon.ico?v=20260710">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png?v=20260710">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20260710">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=20260710">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20260710">
     <link rel="manifest" href="site.webmanifest">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/site-header.css">
+    <link rel="stylesheet" href="assets/site-header.css?v=20260710-proportions">
+    <link rel="preload" as="image" href="/publicidad-marcas-hero.jpg?v=20260710-hero4" type="image/jpeg">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
         :root {
@@ -62,6 +63,28 @@
         }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .gradient-text { background: linear-gradient(135deg, var(--nexo-gold) 0%, var(--ee-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-typewriter-shell {
+            display: grid;
+        }
+        .hero-typewriter-shell::before,
+        .hero-typewriter {
+            grid-area: 1 / 1;
+        }
+        .hero-typewriter-shell::before {
+            content: "Soporte técnico que mantiene tu colegio funcionando.";
+            visibility: hidden;
+        }
+        .hero-typewriter::after {
+            border-right: 0.08em solid var(--ee-blue);
+            content: "";
+            display: inline-block;
+            height: 0.82em;
+            margin-left: 0.08em;
+            animation: typewriter-caret 0.8s steps(1) infinite;
+        }
+        .hero-typewriter.is-static::after {
+            display: none;
+        }
         .premium-shadow { box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); }
         .card-hover:hover { transform: translateY(-10px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .nexo-nav {
@@ -73,6 +96,48 @@
             background:
                 radial-gradient(circle at 78% 26%, rgba(184, 146, 78, .16), transparent 32%),
                 linear-gradient(180deg, #fffdfa 0%, var(--nexo-bg) 58%, #f7faf8 100%);
+        }
+        .home-hero {
+            box-sizing: border-box;
+            min-height: 90dvh;
+            padding: 136px 0 74px;
+        }
+        .home-hero-content {
+            align-items: center;
+            display: grid;
+            gap: 56px;
+            grid-template-columns: minmax(0, .92fr) minmax(360px, 1.08fr);
+            margin: 0 auto;
+            max-width: 1180px;
+            padding: 0 24px;
+            width: 100%;
+        }
+        .home-hero-copy {
+            max-width: 660px;
+        }
+        .home-hero .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+        .home-hero .hero-actions a,
+        .home-hero .hero-actions button {
+            min-height: 48px;
+            padding: 13px 18px;
+        }
+        .home-hero-media {
+            margin: 0;
+            min-width: 0;
+        }
+        .home-hero-image {
+            aspect-ratio: 16 / 10;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            padding: 16px;
+            position: relative;
+            width: 100%;
         }
         .nexo-frame {
             border: 1px solid var(--nexo-line-soft);
@@ -87,7 +152,6 @@
         }
         .nexo-link { color: var(--nexo-quiet); }
         .nexo-link:hover { color: var(--ee-blue); background: var(--nexo-bg-soft); }
-
         .img-container { position: relative; overflow: hidden; }
         .img-premium {
             object-fit: cover;
@@ -106,10 +170,9 @@
             transition: opacity 0.5s ease;
         }
         .group:hover .overlay-gradient { opacity: 0.9; }
-        .animate-float { animation: float 6s ease-in-out infinite; }
         .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
         .modal.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes typewriter-caret { 0%, 48% { opacity: 1; } 49%, 100% { opacity: 0; } }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 1ms !important;
@@ -117,9 +180,24 @@
                 scroll-behavior: auto !important;
                 transition-duration: 1ms !important;
             }
+            .hero-typewriter::after { display: none; }
+        }
+        @media (max-width: 980px) {
+            .home-hero {
+                padding: 118px 0 58px;
+            }
+            .home-hero-content {
+                gap: 42px;
+                grid-template-columns: 1fr;
+                padding: 0 18px;
+            }
+            .home-hero-media {
+                max-width: 720px;
+                width: 100%;
+            }
         }
     </style>
-    <link rel="stylesheet" href="assets/site-typography.css">
+    <link rel="stylesheet" href="assets/site-typography.css?v=20260710-compact-pages2">
 </head>
 <body class="text-slate-900">
 
@@ -173,10 +251,7 @@
 
     <nav class="site-header" aria-label="Navegación principal">
         <a class="ee-brand" href="/" aria-label="Ir al inicio de Electrónica Express">
-            <span class="ee-brand-name">
-                <span class="ee-brand-main">ELECTRONICA</span>
-                <span class="ee-brand-accent">EXPRESS</span>
-            </span>
+            <img class="ee-brand-logo" src="assets/brand/electronica-express-logotipo.png" alt="Electrónica Express" width="1200" height="324">
             <span class="ee-brand-affiliation">Grupo NEXO</span>
         </a>
         <div class="header-links" aria-label="Secciones">
@@ -202,58 +277,43 @@
         </div>
     </nav>
 
-    <section class="relative pt-32 pb-20 px-6 overflow-hidden nexo-hero">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 min-h-[82vh]">
-            <div class="lg:w-1/2 text-center lg:text-left">
-                <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 mb-8 leading-[1.1]">
-                    Tu tecnología <span class="gradient-text">siempre lista</span> para enseñar.
+    <section class="nexo-hero home-hero overflow-hidden">
+        <div class="home-hero-content">
+            <div class="home-hero-copy text-center lg:text-left">
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 mb-8 leading-[1.1]" aria-label="Tu tecnología siempre lista para enseñar.">
+                    <span class="hero-typewriter-shell"><span id="heroTypewriter" class="hero-typewriter" aria-hidden="true">Tu tecnología <span class="gradient-text">siempre lista</span> para enseñar.</span></span>
                 </h1>
-                <p class="text-xl text-[#625b50] mb-10 max-w-2xl leading-relaxed">
+                <p class="text-xl text-[#625b50] max-w-2xl leading-relaxed">
                     Soporte técnico educativo para colegios. Reparamos pantallas interactivas, optimizamos OPS y mantenemos la tecnología escolar funcionando.
                 </p>
-                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-                    <button onclick="toggleModal()" aria-label="Abrir formulario para agendar mantenimiento" aria-controls="contactModal" class="px-10 py-4 bg-[#0b3a78] text-white rounded-none font-bold shadow-2xl shadow-blue-100 hover:bg-[#071d3d] transition-all hover:scale-[1.02] active:scale-95">
+                <div class="hero-actions justify-center lg:justify-start">
+                    <button onclick="toggleModal()" aria-label="Abrir formulario para agendar mantenimiento" aria-controls="contactModal" class="bg-[#0b3a78] text-white rounded-none font-bold shadow-2xl shadow-blue-100 hover:bg-[#071d3d] transition-all hover:scale-[1.02] active:scale-95">
                         Agendar Mantenimiento
                     </button>
-                    <a href="https://wa.me/56945472139" class="px-10 py-4 bg-[#fffdfa] border border-[#d9cbb6] rounded-none font-bold text-slate-700 hover:bg-[#f4efe7] transition-all flex items-center">
+                    <a href="https://wa.me/56945472139" class="bg-[#fffdfa] border border-[#d9cbb6] rounded-none font-bold text-slate-700 hover:bg-[#f4efe7] transition-all flex items-center">
                         <i class="fab fa-whatsapp mr-3 text-xl text-[#0f7a5b]"></i> Hablar con soporte
                     </a>
                 </div>
             </div>
-            <div class="lg:w-1/2 mt-16 lg:mt-0 relative">
-                <div class="nexo-frame nexo-grid animate-float overflow-hidden">
-                    <img src="publicidad-marcas.png" alt="Reparación de pantallas y soporte técnico educativo de Electrónica Express" class="w-full h-auto object-contain p-4">
-                    <div class="border-t border-[#ece5da] bg-[#fffdfa]/90 px-5 py-4">
-                        <p class="text-sm font-bold text-slate-900">Soporte técnico para tecnología escolar</p>
-                        <p class="text-sm text-[#625b50]">Pantallas, OPS, notebooks, laboratorios y equipamiento educativo.</p>
-                    </div>
+            <div class="home-hero-media">
+                <div class="nexo-frame nexo-grid overflow-hidden">
+                    <img src="/publicidad-marcas-hero.jpg?v=20260710-hero4" alt="Reparación de pantallas y soporte técnico educativo de Electrónica Express" class="home-hero-image" width="1698" height="926" fetchpriority="high" decoding="async">
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#071d3d] text-white py-20 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16 border-b border-slate-800 pb-16">
-            <div>
-                <h3 class="text-2xl font-bold mb-6 italic tracking-tighter">ELECTRONICA EXPRESS</h3>
+    <footer class="site-footer-compact">
+        <div class="site-footer-compact__inner">
+            <img class="footer-brand-logo" src="assets/brand/electronica-express-logotipo.png" alt="Electrónica Express, Producto técnico de Grupo NEXO" width="1200" height="324">
+            <div class="site-footer-compact__contact" aria-label="Contacto directo">
+                <a href="https://wa.me/56945472139"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>+56 9 4547 2139</span></a>
+                <a href="mailto:contacto@electronicaexpress.cl"><i class="fas fa-envelope" aria-hidden="true"></i><span>contacto@electronicaexpress.cl</span></a>
             </div>
-            <div>
-                <h4 class="font-bold mb-6 text-slate-100 uppercase tracking-widest text-xs">Contacto Directo</h4>
-                <ul class="space-y-4 text-slate-400">
-                    <li class="flex items-center"><i class="fab fa-whatsapp mr-3 text-green-400 text-xl"></i> +56 9 4547 2139</li>
-                    <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-400"></i> contacto@electronicaexpress.cl</li>
-                </ul>
-            </div>
-            <div>
-                <a href="https://nexoeducacion.cl/" class="font-bold text-[#d7b979] hover:text-white transition">Volver a Grupo NEXO</a>
-            </div>
+            <a class="site-footer-compact__group" href="https://nexoeducacion.cl/">Volver a Grupo NEXO</a>
+            <div class="site-footer-compact__copyright">© 2026 Electrónica Express</div>
         </div>
-        <div class="max-w-7xl mx-auto pt-10 text-center text-slate-500 text-sm">© 2026 Electrónica Express</div>
     </footer>
-
-    <a href="https://wa.me/56945472139" aria-label="Abrir WhatsApp de soporte de Electrónica Express" class="hidden md:flex fixed bottom-10 right-10 bg-[#0f7a5b] text-white w-20 h-20 rounded-full items-center justify-center text-4xl shadow-2xl hover:scale-110 active:scale-95 transition-all z-50">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <script>
         function toggleMobileMenu(){
@@ -269,6 +329,94 @@
             modal.classList.toggle('hidden');
             document.body.style.overflow = modal.classList.contains('hidden') ? 'auto' : 'hidden';
         }
+
+        (function initHeroTypewriter() {
+            const typewriter = document.getElementById('heroTypewriter');
+            if (!typewriter) return;
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                typewriter.classList.add('is-static');
+                return;
+            }
+
+            const phrases = [
+                {
+                    text: 'Tu tecnología siempre lista para enseñar.',
+                    parts: [
+                        { text: 'Tu tecnología ' },
+                        { text: 'siempre lista', accent: true },
+                        { text: ' para enseñar.' },
+                    ],
+                },
+                {
+                    text: 'Aulas conectadas, clases sin interrupciones.',
+                    parts: [
+                        { text: 'Aulas conectadas', accent: true },
+                        { text: ', clases sin interrupciones.' },
+                    ],
+                },
+                {
+                    text: 'Soporte técnico que mantiene tu colegio funcionando.',
+                    parts: [
+                        { text: 'Soporte técnico que ' },
+                        { text: 'mantiene tu colegio', accent: true },
+                        { text: ' funcionando.' },
+                    ],
+                },
+            ];
+
+            function renderPhrase(parts, characterCount) {
+                typewriter.replaceChildren();
+                let remaining = characterCount;
+
+                for (const part of parts) {
+                    if (remaining <= 0) break;
+                    const text = part.text.slice(0, remaining);
+                    const span = document.createElement('span');
+                    if (part.accent) span.className = 'gradient-text';
+                    span.textContent = text;
+                    typewriter.append(span);
+                    remaining -= text.length;
+                }
+            }
+
+            let phraseIndex = 0;
+            let characterCount = phrases[0].text.length;
+            let deleting = true;
+
+            function step() {
+                const phrase = phrases[phraseIndex];
+                const phraseLength = phrase.text.length;
+
+                if (deleting) {
+                    characterCount = Math.max(0, characterCount - 1);
+                    renderPhrase(phrase.parts, characterCount);
+
+                    if (characterCount === 0) {
+                        deleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        window.setTimeout(step, 320);
+                        return;
+                    }
+
+                    window.setTimeout(step, 28);
+                    return;
+                }
+
+                characterCount = Math.min(phraseLength, characterCount + 1);
+                renderPhrase(phrase.parts, characterCount);
+
+                if (characterCount === phraseLength) {
+                    deleting = true;
+                    window.setTimeout(step, 1800);
+                    return;
+                }
+
+                window.setTimeout(step, 52);
+            }
+
+            window.setTimeout(step, 1800);
+        })();
     </script>
 </body>
 </html>

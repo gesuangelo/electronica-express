@@ -12,10 +12,10 @@
     <meta property="og:description" content="Soporte técnico educativo para marcas usadas en colegios, con respaldo de Grupo NEXO.">
     <meta property="og:url" content="https://electronicaexpress.cl/marcas/">
     <meta property="og:site_name" content="Electrónica Express">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=20260710">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/site-header.css">
+    <link rel="stylesheet" href="../assets/site-header.css?v=20260710-proportions">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
       :root{--nexo-bg:#fbf9f6;--nexo-bg-soft:#f4efe7;--nexo-ink:#171717;--nexo-muted:#625b50;--nexo-quiet:#87785f;--nexo-gold:#b8924e;--nexo-line:#d9cbb6;--nexo-line-soft:#ece5da;--ee-blue:#0b3a78;--ee-blue-dark:#071d3d;--ee-green:#0f7a5b}
@@ -30,15 +30,12 @@
       .section-label{color:var(--nexo-gold);font-size:.82rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
       @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
     </style>
-    <link rel="stylesheet" href="../assets/site-typography.css">
+    <link rel="stylesheet" href="../assets/site-typography.css?v=20260710-compact-pages2">
 </head>
 <body class="text-slate-900">
 <nav class="site-header" aria-label="Navegación principal">
         <a class="ee-brand" href="/" aria-label="Ir al inicio de Electrónica Express">
-            <span class="ee-brand-name">
-                <span class="ee-brand-main">ELECTRONICA</span>
-                <span class="ee-brand-accent">EXPRESS</span>
-            </span>
+            <img class="ee-brand-logo" src="../assets/brand/electronica-express-logotipo.png" alt="Electrónica Express" width="1200" height="324">
             <span class="ee-brand-affiliation">Grupo NEXO</span>
         </a>
         <div class="header-links" aria-label="Secciones">
@@ -72,22 +69,17 @@
     </div>
 </section>
 
-<footer class="bg-[#071d3d] text-white py-14 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div>
-            <p class="text-xl font-extrabold tracking-tighter">ELECTRONICA EXPRESS</p>
-            <p class="text-slate-300">Producto técnico de Grupo NEXO para soporte educativo.</p>
+<footer class="site-footer-compact">
+    <div class="site-footer-compact__inner">
+        <img class="footer-brand-logo" src="../assets/brand/electronica-express-logotipo.png" alt="Electrónica Express, Producto técnico de Grupo NEXO" width="1200" height="324">
+        <div class="site-footer-compact__contact" aria-label="Contacto directo">
+            <a href="https://wa.me/56945472139"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>+56 9 4547 2139</span></a>
+            <a href="mailto:contacto@electronicaexpress.cl"><i class="fas fa-envelope" aria-hidden="true"></i><span>contacto@electronicaexpress.cl</span></a>
         </div>
-        <div class="flex flex-wrap gap-4 font-bold text-sm">
-            <a href="https://nexoeducacion.cl/" class="text-[#d7b979] hover:text-white transition">Grupo NEXO</a>
-            <a href="mailto:contacto@electronicaexpress.cl" class="text-[#d7b979] hover:text-white transition">contacto@electronicaexpress.cl</a>
-        </div>
+        <a class="site-footer-compact__group" href="https://nexoeducacion.cl/">Volver a Grupo NEXO</a>
+        <div class="site-footer-compact__copyright">© 2026 Electrónica Express</div>
     </div>
 </footer>
-
-<a href="https://wa.me/56945472139" aria-label="Abrir WhatsApp de soporte de Electrónica Express" class="hidden md:flex fixed bottom-10 right-10 bg-[#0f7a5b] text-white w-20 h-20 rounded-full items-center justify-center text-4xl shadow-2xl hover:scale-110 active:scale-95 transition-all z-50">
-    <i class="fab fa-whatsapp"></i>
-</a>
 
 <script>
 function toggleMobileMenu(){

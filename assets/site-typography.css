@@ -39,6 +39,14 @@ body :is(h1, .ee-page-title) {
   margin-bottom: 22px !important;
 }
 
+.home-hero h1 {
+  font-size: 3.65rem !important;
+}
+
+body .compact-page-title {
+  font-size: 3.65rem !important;
+}
+
 section h2,
 .section-heading h2 {
   color: #111827 !important;
@@ -140,11 +148,27 @@ footer a {
   body :is(h1, .ee-page-title) {
     font-size: 3.8rem !important;
   }
+
+  .home-hero h1 {
+    font-size: 3.4rem !important;
+  }
+
+  body .compact-page-title {
+    font-size: 3.4rem !important;
+  }
 }
 
 @media (max-width: 720px) {
   body :is(h1, .ee-page-title) {
     font-size: 3.15rem !important;
+  }
+
+  .home-hero h1 {
+    font-size: 3rem !important;
+  }
+
+  body .compact-page-title {
+    font-size: 3rem !important;
   }
 
   .nexo-hero h1 span {
@@ -165,6 +189,14 @@ footer a {
 @media (max-width: 460px) {
   body :is(h1, .ee-page-title) {
     font-size: 2.65rem !important;
+  }
+
+  .home-hero h1 {
+    font-size: 2.35rem !important;
+  }
+
+  body .compact-page-title {
+    font-size: 2.35rem !important;
   }
 
   section h2,

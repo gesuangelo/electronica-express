@@ -1,27 +1,46 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 
 const pages = [
   {
     file: "index.html",
     canonical: "https://electronicaexpress.cl/",
     h1: "Tu tecnología siempre lista para enseñar.",
+    brandLogo: "assets/brand/electronica-express-logotipo.png",
   },
   {
     file: "servicios/index.html",
     canonical: "https://electronicaexpress.cl/servicios/",
     h1: "Soluciones en soporte TI",
+    brandLogo: "../assets/brand/electronica-express-logotipo.png",
   },
   {
     file: "marcas/index.html",
     canonical: "https://electronicaexpress.cl/marcas/",
     h1: "Marcas que atendemos",
+    brandLogo: "../assets/brand/electronica-express-logotipo.png",
   },
   {
     file: "galeria/index.html",
     canonical: "https://electronicaexpress.cl/galeria/",
     h1: "Ingeniería en Acción",
+    brandLogo: "../assets/brand/electronica-express-logotipo.png",
   },
 ];
+
+const brandAssets = [
+  "assets/brand/electronica-express-logotipo.png",
+  "assets/brand/electronica-express-logo.png",
+  "favicon.ico",
+  "favicon-16x16.png",
+  "favicon-32x32.png",
+  "favicon-48x48.png",
+  "apple-touch-icon.png",
+  "android-chrome-192x192.png",
+  "android-chrome-512x512.png",
+];
+const requiredMediaAssets = ["publicidad-marcas-hero.jpg"];
+const sharedBrandCss = readFileSync("assets/site-header.css", "utf8");
+const sharedTypographyCss = readFileSync("assets/site-typography.css", "utf8");
 
 let failures = 0;
 
@@ -56,7 +75,94 @@ for (const page of pages) {
     fail(`${page.file} must not show the old header logo icon`);
   }
 
+  if (!html.includes(`class="ee-brand-logo" src="${page.brandLogo}"`)) {
+    fail(`${page.file} must show the new Electrónica Express logotype`);
+  }
+
+  if (html.includes('class="ee-brand-name"')) {
+    fail(`${page.file} must not show the superseded text-only header brand`);
+  }
+
+  if (!html.includes(`class="footer-brand-logo" src="${page.brandLogo}"`)) {
+    fail(`${page.file} footer must use the official Electrónica Express logotype`);
+  }
+
+  if (/>\s*ELECTRONICA EXPRESS\s*</i.test(html)) {
+    fail(`${page.file} footer must not use the superseded text-only brand`);
+  }
+
+  if (!html.includes('footer class="site-footer-compact"')) {
+    fail(`${page.file} footer must use the shared compact layout`);
+  }
+
+  if (!html.includes('class="site-footer-compact__inner"')) {
+    fail(`${page.file} footer must use the shared compact inner grid`);
+  }
+
+  if (!html.includes('site-header.css?v=') || !html.includes('site-typography.css?v=')) {
+    fail(`${page.file} must version shared CSS to avoid stale proportions`);
+  }
+
+  if (/<a\b[^>]*href="https:\/\/wa\.me\/56945472139"[^>]*class="[^"]*\bfixed\b/i.test(html)) {
+    fail(`${page.file} must not show the floating WhatsApp button`);
+  }
+
   if (page.file === "index.html") {
+    if (!html.includes('class="home-hero-content"') || !html.includes('class="home-hero-media"')) {
+      fail(`${page.file} hero content and media must use the shared proportional grid`);
+    }
+
+    for (const removedHeroMediaText of [
+      "Soporte técnico para tecnología escolar",
+      "Pantallas, OPS, notebooks, laboratorios y equipamiento educativo.",
+    ]) {
+      if (html.includes(removedHeroMediaText)) {
+        fail(`${page.file} must not show removed hero media text: ${removedHeroMediaText}`);
+      }
+    }
+
+    if (html.includes("animate-float") || html.includes("@keyframes float")) {
+      fail(`${page.file} hero media must remain static`);
+    }
+
+    if (!html.includes('id="heroTypewriter"')) {
+      fail(`${page.file} must expose the home hero typewriter target`);
+    }
+
+    for (const phrase of [
+      "Tu tecnología siempre lista para enseñar.",
+      "Aulas conectadas, clases sin interrupciones.",
+      "Soporte técnico que mantiene tu colegio funcionando.",
+    ]) {
+      if (!html.includes(phrase)) {
+        fail(`${page.file} missing approved typewriter phrase: ${phrase}`);
+      }
+    }
+
+    if (!html.includes("window.matchMedia('(prefers-reduced-motion: reduce)').matches")) {
+      fail(`${page.file} typewriter must respect reduced-motion preferences`);
+    }
+
+    if (/typed(?:\.min)?\.js/i.test(html)) {
+      fail(`${page.file} typewriter must not add an external animation dependency`);
+    }
+
+    if (!html.includes('src="/publicidad-marcas-hero.jpg?v=20260710-hero4"')) {
+      fail(`${page.file} must version the home hero image to avoid stale browser caches`);
+    }
+
+    if (!html.includes('class="nexo-hero home-hero overflow-hidden"')) {
+      fail(`${page.file} home hero must use the Citofono-aligned proportional layout`);
+    }
+
+    if (!html.includes('fetchpriority="high"')) {
+      fail(`${page.file} must prioritize the home hero image`);
+    }
+
+    if (!html.includes('min-height: 90dvh') || !html.includes('max-width: 1180px')) {
+      fail(`${page.file} home hero must match the Citofono viewport and content proportions`);
+    }
+
     for (const removedHomeText of ["Colegios y aulas digitales", "Cobertura nacional"]) {
       if (html.includes(removedHomeText)) {
         fail(`${page.file} must not show removed hero chip text: ${removedHomeText}`);
@@ -115,6 +221,14 @@ for (const page of pages) {
   }
 
   if (page.file === "servicios/index.html") {
+    if (html.includes("Infraestructura tecnológica robusta para garantizar la continuidad del aula digital.")) {
+      fail(`${page.file} must not show the removed services subtitle`);
+    }
+
+    if (!html.includes('class="services-page-section') || !html.includes('class="compact-page-title')) {
+      fail(`${page.file} must use the compact desktop layout`);
+    }
+
     const requiredServiceImages = [
       "assets/generated/servicio-pantallas-interactivas.png",
       "assets/generated/servicio-ops.png",
@@ -136,6 +250,10 @@ for (const page of pages) {
   }
 
   if (page.file === "galeria/index.html") {
+    if (!html.includes('class="gallery-page-section') || !html.includes('class="compact-page-title')) {
+      fail(`${page.file} must use the compact desktop layout`);
+    }
+
     if (!html.includes("assets/generated/galeria-carros-carga-sin-logo.png")) {
       fail(`${page.file} must use the generated charging-cart image without logo or 4K`);
     }
@@ -143,6 +261,38 @@ for (const page of pages) {
     if (html.includes("publicidad-carros.png")) {
       fail(`${page.file} must not use the old charging-cart gallery image`);
     }
+  }
+}
+
+if (!sharedBrandCss.includes(".footer-brand-logo")) {
+  fail("assets/site-header.css must provide the shared footer logotype style");
+}
+
+if (!sharedBrandCss.includes(".site-footer-compact__inner")) {
+  fail("assets/site-header.css must provide the shared compact footer layout");
+}
+
+if (!sharedBrandCss.includes("min-height: 100dvh") || !sharedBrandCss.includes("margin-top: auto")) {
+  fail("assets/site-header.css must keep the footer at the bottom of short pages");
+}
+
+if (!sharedTypographyCss.includes(".home-hero h1") || !sharedTypographyCss.includes("font-size: 3.65rem !important")) {
+  fail("assets/site-typography.css must match the Citofono hero title scale");
+}
+
+if (!sharedTypographyCss.includes("body .compact-page-title")) {
+  fail("assets/site-typography.css must provide the compact secondary-page title scale");
+}
+
+for (const asset of brandAssets) {
+  if (!existsSync(asset) || statSync(asset).size === 0) {
+    fail(`missing generated brand asset: ${asset}`);
+  }
+}
+
+for (const asset of requiredMediaAssets) {
+  if (!existsSync(asset) || statSync(asset).size === 0) {
+    fail(`missing required media asset: ${asset}`);
   }
 }
 

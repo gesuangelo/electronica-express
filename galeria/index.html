@@ -12,31 +12,31 @@
     <meta property="og:description" content="Trabajos técnicos de Electrónica Express para tecnología educativa, con respaldo de Grupo NEXO.">
     <meta property="og:url" content="https://electronicaexpress.cl/galeria/">
     <meta property="og:site_name" content="Electrónica Express">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=20260710">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/site-header.css">
+    <link rel="stylesheet" href="../assets/site-header.css?v=20260710-proportions">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
       :root{--nexo-bg:#fbf9f6;--nexo-bg-soft:#f4efe7;--nexo-ink:#171717;--nexo-muted:#625b50;--nexo-quiet:#87785f;--nexo-gold:#b8924e;--nexo-line:#d9cbb6;--nexo-line-soft:#ece5da;--ee-blue:#0b3a78;--ee-blue-dark:#071d3d;--ee-green:#0f7a5b}
       body{font-family:'Inter',sans-serif;background:var(--nexo-bg);color:var(--nexo-ink)}
+      .gallery-page-section{padding:112px 0 24px}
+      .gallery-page-heading{margin-bottom:24px}
       .img-premium{display:block;width:100%;height:auto;transition:transform .35s ease,filter .35s ease;filter:brightness(.98) contrast(1.02)}
       .group:hover .img-premium{transform:scale(1.01);filter:brightness(1.02) contrast(1.04)}
       .nexo-nav{background:rgba(255,253,249,.94);border-color:rgba(217,203,182,.76);box-shadow:0 16px 44px rgba(61,46,22,.1)}
       .nexo-link{color:var(--nexo-quiet)}
       .nexo-link:hover{color:var(--ee-blue);background:var(--nexo-bg-soft)}
       .section-label{color:var(--nexo-gold);font-size:.82rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+      @media (max-width:720px){.gallery-page-section{padding:108px 0 48px}.gallery-page-heading{margin-bottom:32px}}
       @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
     </style>
-    <link rel="stylesheet" href="../assets/site-typography.css">
+    <link rel="stylesheet" href="../assets/site-typography.css?v=20260710-compact-pages2">
 </head>
 <body class="text-slate-900">
 <nav class="site-header" aria-label="Navegación principal">
         <a class="ee-brand" href="/" aria-label="Ir al inicio de Electrónica Express">
-            <span class="ee-brand-name">
-                <span class="ee-brand-main">ELECTRONICA</span>
-                <span class="ee-brand-accent">EXPRESS</span>
-            </span>
+            <img class="ee-brand-logo" src="../assets/brand/electronica-express-logotipo.png" alt="Electrónica Express" width="1200" height="324">
             <span class="ee-brand-affiliation">Grupo NEXO</span>
         </a>
         <div class="header-links" aria-label="Secciones">
@@ -62,11 +62,11 @@
         </div>
     </nav>
 
-<section id="galeria" class="py-24 bg-[#fbf9f6] overflow-hidden pt-36">
+<section id="galeria" class="gallery-page-section bg-[#fbf9f6] overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="mb-16">
+    <div class="gallery-page-heading">
       <p class="section-label mb-3">Soporte técnico educativo</p>
-      <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Ingeniería en Acción</h1>
+      <h1 class="compact-page-title font-extrabold text-slate-900 mb-4">Ingeniería en Acción</h1>
       <p class="page-lead text-[#625b50]">Visualice la precisión técnica que aplicamos en cada intervención.</p>
     </div>
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -80,22 +80,17 @@
   </div>
 </section>
 
-<footer class="bg-[#071d3d] text-white py-14 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div>
-            <p class="text-xl font-extrabold tracking-tighter">ELECTRONICA EXPRESS</p>
-            <p class="text-slate-300">Producto técnico de Grupo NEXO para soporte educativo.</p>
+<footer class="site-footer-compact">
+    <div class="site-footer-compact__inner">
+        <img class="footer-brand-logo" src="../assets/brand/electronica-express-logotipo.png" alt="Electrónica Express, Producto técnico de Grupo NEXO" width="1200" height="324">
+        <div class="site-footer-compact__contact" aria-label="Contacto directo">
+            <a href="https://wa.me/56945472139"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>+56 9 4547 2139</span></a>
+            <a href="mailto:contacto@electronicaexpress.cl"><i class="fas fa-envelope" aria-hidden="true"></i><span>contacto@electronicaexpress.cl</span></a>
         </div>
-        <div class="flex flex-wrap gap-4 font-bold text-sm">
-            <a href="https://nexoeducacion.cl/" class="text-[#d7b979] hover:text-white transition">Grupo NEXO</a>
-            <a href="mailto:contacto@electronicaexpress.cl" class="text-[#d7b979] hover:text-white transition">contacto@electronicaexpress.cl</a>
-        </div>
+        <a class="site-footer-compact__group" href="https://nexoeducacion.cl/">Volver a Grupo NEXO</a>
+        <div class="site-footer-compact__copyright">© 2026 Electrónica Express</div>
     </div>
 </footer>
-
-<a href="https://wa.me/56945472139" aria-label="Abrir WhatsApp de soporte de Electrónica Express" class="hidden md:flex fixed bottom-10 right-10 bg-[#0f7a5b] text-white w-20 h-20 rounded-full items-center justify-center text-4xl shadow-2xl hover:scale-110 active:scale-95 transition-all z-50">
-    <i class="fab fa-whatsapp"></i>
-</a>
 
 <script>
 function toggleMobileMenu(){
