@@ -38,7 +38,7 @@ const brandAssets = [
   "android-chrome-192x192.png",
   "android-chrome-512x512.png",
 ];
-const requiredMediaAssets = ["publicidad-marcas-hero.jpg"];
+const requiredMediaAssets = ["hero-electronica-express-aula.jpg"];
 const sharedBrandCss = readFileSync("assets/site-header.css", "utf8");
 const sharedTypographyCss = readFileSync("assets/site-typography.css", "utf8");
 
@@ -147,8 +147,12 @@ for (const page of pages) {
       fail(`${page.file} typewriter must not add an external animation dependency`);
     }
 
-    if (!html.includes('src="/publicidad-marcas-hero.jpg?v=20260710-hero4"')) {
+    if (!html.includes('src="/hero-electronica-express-aula.jpg?v=20260710-hero5"')) {
       fail(`${page.file} must version the home hero image to avoid stale browser caches`);
+    }
+
+    if (!html.includes("this.src='/publicidad-marcas.png?v=20260710-hero-fallback'")) {
+      fail(`${page.file} must provide a PNG fallback for the home hero image`);
     }
 
     if (!html.includes('class="nexo-hero home-hero overflow-hidden"')) {
@@ -159,7 +163,7 @@ for (const page of pages) {
       fail(`${page.file} must prioritize the home hero image`);
     }
 
-    if (!html.includes('min-height: 90dvh') || !html.includes('max-width: 1180px')) {
+    if (!html.includes('min-height: 90dvh') || !html.includes('padding: clamp(136px, 20vh, 176px)') || !html.includes('max-width: 1180px')) {
       fail(`${page.file} home hero must match the Citofono viewport and content proportions`);
     }
 
